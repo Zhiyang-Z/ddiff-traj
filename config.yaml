@@ -1,0 +1,29 @@
+dataset:
+  data_path: '/home/zzhang18/datasets/total30.npy'
+  label_path: '/home/zzhang18/datasets/total30_label_old.npy'
+  num_workers: 16
+  shuffle: True
+diffuse:
+  K: 2707 # include absorbing state.
+  T: 500
+  N: 200
+  mode: 'uni'
+  noise_schedule: 'cosine'
+  P: 16
+model:
+  embedding_size: 768
+  training_seq_len: 200
+  need_padding: False
+  padding_token: 0
+  nlayer: [1,12]
+  nhead: 12
+  ndim: 768
+  ndim_feedforward: 2048
+  drop_out: 0.1
+  pre_norm: True
+  model_compile: True
+optim:
+  batch_size: 448
+  hybrid_loss_coeff: 0.001
+  lr: 0.0005
+  save_path: '/home/zzhang18/programs_data/ddifftraj/ddifftraj_unet/3x3_uni_cosine_T500_3timestep_8conditions/'
